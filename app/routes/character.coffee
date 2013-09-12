@@ -4,5 +4,7 @@ CharacterRoute = Ember.Route.extend
     race: 'Wood Elf'
     class: 'Ranger'
     level: 1
+  setupController: (controller, character) ->
+    controller.set 'model', character
 
 `export default CharacterRoute`

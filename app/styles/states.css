@@ -1,0 +1,5 @@
+.hide-on-edit { display: block; }
+.show-on-edit { display: none; }
+
+.edit .hide-on-edit { display: none; }
+.edit .show-on-edit { display: block; }

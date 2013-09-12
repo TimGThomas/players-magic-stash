@@ -1,18 +1,59 @@
-<h2>{{name}}</h2>
-<h3>{{race}} {{class}}</h3>
+<div {{bindAttr class="isEditing:edit"}}>
+    <div class="hide-on-edit">
+        <h2>{{name}}</h2>
+        <h3>{{race}} {{class}}</h3>
 
-<fieldset>
-    <legend>Edit</legend>
-    <p>
-        <label for="name">Name</label>
-        {{input type=text value=name}}
-    </p>
-    <p>
-        <label for="race">Race</label>
-        {{input type=text value=race}}
-    </p>
-    <p>
-        <label for="class">Class</label>
-        {{input type=text value=class}}
-    </p>
-</fieldset>
+        <h4>Ability Scores</h4>
+        <dl>
+            <dt>Strength</dt>
+            <dd>
+                <span class="score">10</span>
+                <span class="modifier">+0</span>
+            </dd>
+            <dt>Dexterity</dt>
+            <dd>
+                <span class="score">10</span>
+                <span class="modifier">+0</span>
+            </dd>
+            <dt>Constitution</dt>
+            <dd>
+                <span class="score">10</span>
+                <span class="modifier">+0</span>
+            </dd>
+            <dt>Wisdom</dt>
+            <dd>
+                <span class="score">10</span>
+                <span class="modifier">+0</span>
+            </dd>
+            <dt>Intelligence</dt>
+            <dd>
+                <span class="score">10</span>
+                <span class="modifier">+0</span>
+            </dd>
+            <dt>Charisma</dt>
+            <dd>
+                <span class="score">10</span>
+                <span class="modifier">+0</span>
+            </dd>
+        </dl>
+
+        <button {{action toggleProperty 'isEditing'}}>Edit</button>
+    </div>
+
+    <fieldset class="show-on-edit">
+        <legend>Edit</legend>
+        <p>
+            <label for="name">Name</label>
+            {{input type=text value=name}}
+        </p>
+        <p>
+            <label for="race">Race</label>
+            {{input type=text value=race}}
+        </p>
+        <p>
+            <label for="class">Class</label>
+            {{input type=text value=class}}
+        </p>
+        <button {{action toggleProperty 'isEditing'}}>Done</button>
+    </fieldset>
+</div>
