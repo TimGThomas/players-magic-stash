@@ -3,3 +3,37 @@
 
 .edit .hide-on-edit { display: none; }
 .edit .show-on-edit { display: block; }
+
+.tile-flip {
+  -webkit-perspective: 1000;
+}
+
+.tile-flip.flip .flipper {
+  -webkit-transform: rotateY(180deg);
+}
+
+.tile-flip, .front, .back {
+  background: rgba(255, 255, 255, 0.85);
+  height: 500px;
+  width: 300px;
+}
+
+.flipper {
+  transition: 0.85s;
+  -webkit-transform-style: preserve-3d;
+  position: relative;
+}
+
+.front, .back {
+  border: 1px solid #000;
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.front {
+  z-index: 2;
+}
+
+.back { -webkit-transform: rotateY(180deg); }
