@@ -11,4 +11,9 @@ var App = Ember.Application.create({
   })
 });
 
+App.RangeField = Ember.TextField.extend({
+  type: 'range',
+  attributeBindings: ['min', 'max', 'step']
+});
+
 export default App;

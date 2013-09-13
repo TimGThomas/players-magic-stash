@@ -7,7 +7,7 @@
         <dl>
             <dt>Strength</dt>
             <dd>
-                <span class="score">10</span>
+                <span class="score">{{strength}}</span>
                 <span class="modifier">+0</span>
             </dd>
             <dt>Dexterity</dt>
@@ -40,20 +40,29 @@
         <button {{action toggleProperty 'isEditing'}}>Edit</button>
     </div>
 
-    <fieldset class="show-on-edit">
-        <legend>Edit</legend>
-        <p>
-            <label for="name">Name</label>
-            {{input type=text value=name}}
-        </p>
-        <p>
-            <label for="race">Race</label>
-            {{input type=text value=race}}
-        </p>
-        <p>
-            <label for="class">Class</label>
-            {{input type=text value=class}}
-        </p>
+    <div class="show-on-edit">
+        <fieldset>
+            <legend>Basics</legend>
+            <p>
+                <label for="name">Name</label>
+                {{input type=text value=name}}
+            </p>
+            <p>
+                <label for="race">Race</label>
+                {{input type=text value=race}}
+            </p>
+            <p>
+                <label for="class">Class</label>
+                {{input type=text value=class}}
+            </p>
+        </fieldset>
+        <fieldset>
+            <legend>Ability Scores</legend>
+            <p>
+                <label for="strength">Strength ({{strength}})</label>
+                {{view App.RangeField valueBinding="strength" min="3" max="20"}}
+            </p>
+        </fieldset>
         <button {{action toggleProperty 'isEditing'}}>Done</button>
-    </fieldset>
+    </div>
 </div>

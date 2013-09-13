@@ -7,5 +7,6 @@ Character.reopenClass
       race: 'Wood Elf'
       class: 'Ranger'
       level: 1
+      strength: 8
 
 `export default Character`
