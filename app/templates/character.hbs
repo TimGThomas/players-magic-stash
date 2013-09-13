@@ -8,32 +8,32 @@
             <dt>Strength</dt>
             <dd>
                 <span class="score">{{strength}}</span>
-                <span class="modifier">+0</span>
+                <span class="modifier">{{strengthModifier}}</span>
             </dd>
             <dt>Dexterity</dt>
             <dd>
-                <span class="score">10</span>
-                <span class="modifier">+0</span>
+                <span class="score">{{dexterity}}</span>
+                <span class="modifier">{{dexterityModifier}}</span>
             </dd>
             <dt>Constitution</dt>
             <dd>
-                <span class="score">10</span>
-                <span class="modifier">+0</span>
+                <span class="score">{{constitution}}</span>
+                <span class="modifier">{{constitutionModifier}}</span>
             </dd>
             <dt>Wisdom</dt>
             <dd>
-                <span class="score">10</span>
-                <span class="modifier">+0</span>
+                <span class="score">{{wisdom}}</span>
+                <span class="modifier">{{wisdomModifier}}</span>
             </dd>
             <dt>Intelligence</dt>
             <dd>
-                <span class="score">10</span>
-                <span class="modifier">+0</span>
+                <span class="score">{{intelligence}}</span>
+                <span class="modifier">{{intelligenceModifier}}</span>
             </dd>
             <dt>Charisma</dt>
             <dd>
-                <span class="score">10</span>
-                <span class="modifier">+0</span>
+                <span class="score">{{charisma}}</span>
+                <span class="modifier">{{charismaModifier}}</span>
             </dd>
         </dl>
 
@@ -59,8 +59,28 @@
         <fieldset>
             <legend>Ability Scores</legend>
             <p>
-                <label for="strength">Strength ({{strength}})</label>
-                {{view App.RangeField valueBinding="strength" min="3" max="20"}}
+                <label for="strength">Strength ({{strength}}, {{strengthModifier}})</label>
+                {{view App.RangeField valueBinding="strength" min="1" max="30"}}
+            </p>
+            <p>
+                <label for="dexterity">Dexterity ({{dexterity}}, {{dexterityModifier}})</label>
+                {{view App.RangeField valueBinding="dexterity" min="1" max="30"}}
+            </p>
+            <p>
+                <label for="constitution">Constitution ({{constitution}}, {{constitutionModifier}})</label>
+                {{view App.RangeField valueBinding="constitution" min="1" max="30"}}
+            </p>
+            <p>
+                <label for="wisdom">Wisdom ({{wisdom}}, {{wisdomModifier}})</label>
+                {{view App.RangeField valueBinding="wisdom" min="1" max="30"}}
+            </p>
+            <p>
+                <label for="intelligence">Intelligence ({{intelligence}}, {{intelligenceModifier}})</label>
+                {{view App.RangeField valueBinding="intelligence" min="1" max="30"}}
+            </p>
+            <p>
+                <label for="charisma">Charisma ({{charisma}}, {{charismaModifier}})</label>
+                {{view App.RangeField valueBinding="charisma" min="1" max="30"}}
             </p>
         </fieldset>
         <button {{action toggleProperty 'isEditing'}}>Done</button>
