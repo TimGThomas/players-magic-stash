@@ -4,6 +4,19 @@
             <h2>{{name}}</h2>
             <h3>{{race}} {{class}}</h3>
 
+            <h4>Basics</h4>
+            <dl>
+                <dt>Hit Points</dt>
+                <dd>
+                    <span class="score">{{currentHitPoints}}</span>
+                    <span class="modifier">{{hitPoints}}</span>
+                </dd>
+                <dt>Armor Class</dt>
+                <dd><span class="score">{{armorClass}}</span></dd>
+                <dt>Initiative</dt>
+                <dd><span class="score">(+0)</span></dd>
+            </dl>
+
             <h4>Ability Scores</h4>
             <dl>
                 <dt>Strength</dt>
@@ -55,6 +68,14 @@
                 <p>
                     <label for="class">Class</label>
                     {{input type=text value=class}}
+                </p>
+                <p>
+                    <label for="hitPoints">Hit Points</label>
+                    {{input type=text value=hitPoints}}
+                </p>
+                <p>
+                    <label for="armorClass">Armor Class</label>
+                    {{input type=text value=armorClass}}
                 </p>
             </fieldset>
             <fieldset>
