@@ -13,10 +13,12 @@ CharacterRoute = Ember.Route.extend
         outlet: 'modal'
         parentView: 'application'
       @get('controller').send 'clearModalValues'
+      $('.modal').removeClass 'modal-show'
 
 CharacterRoute::showModal = (view) ->
   @render view,
     into: 'application'
     outlet: 'modal'
+  $('.modal').addClass 'modal-show'
 
 `export default CharacterRoute`
