@@ -5,51 +5,56 @@
             <h3>{{race}} {{class}}</h3>
 
             <h4>Basics</h4>
-            <dl>
-                <dt><a href="#" {{action showHitPoints}}>Hit Points</a></dt>
-                <dd>
-                    <span class="score">{{currentHitPoints}}</span>
-                    <span class="modifier">{{hitPoints}}</span>
-                </dd>
-                <dt>Armor Class</dt>
-                <dd><span class="score">{{armorClass}}</span></dd>
-                <dt>Initiative</dt>
-                <dd><span class="score">(+0)</span></dd>
-            </dl>
+            <ul class="tile-container">
+                <li class="tile" {{action showHitPoints}}>
+                    <span class="title">Hit Points</span>
+                    <span class="primary">{{currentHitPoints}}</span>
+                    <span class="secondary">{{hitPoints}}</span>
+                </li>
+                <li class="tile">
+                    <span class="title">Armor Class</span>
+                    <span class="primary">{{armorClass}}</span>
+                </li>
+                <li class="tile">
+                    <span class="title">Initiative</span>
+                    <span class="primary">(+0)</span>
+                </li>
+            </ul>
 
             <h4>Ability Scores</h4>
-            <dl>
-                <dt>Strength</dt>
-                <dd>
-                    <span class="score">{{strength}}</span>
-                    <span class="modifier">{{strengthModifier}}</span>
-                </dd>
-                <dt>Dexterity</dt>
-                <dd>
-                    <span class="score">{{dexterity}}</span>
-                    <span class="modifier">{{dexterityModifier}}</span>
-                </dd>
-                <dt>Constitution</dt>
-                <dd>
-                    <span class="score">{{constitution}}</span>
-                    <span class="modifier">{{constitutionModifier}}</span>
-                </dd>
-                <dt>Wisdom</dt>
-                <dd>
-                    <span class="score">{{wisdom}}</span>
-                    <span class="modifier">{{wisdomModifier}}</span>
-                </dd>
-                <dt>Intelligence</dt>
-                <dd>
-                    <span class="score">{{intelligence}}</span>
-                    <span class="modifier">{{intelligenceModifier}}</span>
-                </dd>
-                <dt>Charisma</dt>
-                <dd>
-                    <span class="score">{{charisma}}</span>
-                    <span class="modifier">{{charismaModifier}}</span>
-                </dd>
-            </dl>
+
+            <ul class="tile-container">
+                <li class="tile">
+                    <span class="title">Str</span>
+                    <span class="primary">{{strength}}</span>
+                    <span class="secondary">{{strengthModifier}}</span>
+                </li>
+                <li class="tile">
+                    <span class="title">Dex</span>
+                    <span class="primary">{{dexterity}}</span>
+                    <span class="secondary">{{dexterityModifier}}</span>
+                </li>
+                <li class="tile">
+                    <span class="title">Con</span>
+                    <span class="primary">{{constitution}}</span>
+                    <span class="secondary">{{constitutionModifier}}</span>
+                </li>
+                <li class="tile">
+                    <span class="title">Wis</span>
+                    <span class="primary">{{wisdom}}</span>
+                    <span class="secondary">{{wisdomModifier}}</span>
+                </li>
+                <li class="tile">
+                    <span class="title">Int</span>
+                    <span class="primary">{{intelligence}}</span>
+                    <span class="secondary">{{intelligenceModifier}}</span>
+                </li>
+                <li class="tile">
+                    <span class="title">Cha</span>
+                    <span class="primary">{{charisma}}</span>
+                    <span class="secondary">{{charismaModifier}}</span>
+                </li>
+            </ul>
 
             <button {{action toggleProperty 'isEditing'}}>Edit</button>
         </div>
