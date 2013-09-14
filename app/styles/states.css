@@ -87,12 +87,12 @@ ul.tile-container {
   display: block;
   text-align: center;
 }
-.tile.title {
+.tile .title {
 
 }
-.tile.primary {
-
+.tile .primary {
+  font-size: x-large;
 }
-.tile.secondary {
+.tile .secondary {
 
 }
