@@ -6,8 +6,9 @@ CharacterRoute = Ember.Route.extend
   actions:
     showHitPoints: ->
       @showModal 'modal-hitPoints'
-    commitHitPoints: ->
-      @get('controller').send 'commitHitPoints'
+    resetHitPoints: ->
+      @get('controller').send 'resetHP'
+      @send 'closeModal'
     closeModal: ->
       @disconnectOutlet
         outlet: 'modal'

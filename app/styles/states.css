@@ -9,7 +9,7 @@
 }
 
 .tile-flip.flip .flipper {
-  -webkit-transform: rotateY(180deg);
+  -webkit-transform: rotateY(-180deg);
 }
 
 .tile-flip, .front, .back {
