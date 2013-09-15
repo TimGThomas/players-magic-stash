@@ -7,23 +7,43 @@ Character = Ember.Object.extend
   intelligenceModifier: (-> Character.getModifier @get('intelligence')).property 'intelligence'
   charismaModifier: (-> Character.getModifier @get('charisma')).property 'charisma'
 
+Character::toJSON = ->
+  ret = []
+  for key of this
+    if @hasOwnProperty(key)
+      v = this[key]
+      continue  if v is "toString"
+      # ignore useless items
+      continue  if Ember.typeOf(v) is "function"
+      ret.push key
+  @getProperties ret
+
+Character::save = ->
+  localStorage.setItem 'character', JSON.stringify(@toJSON())
+
 Character.reopenClass
   get: ->
-    Character.create
-      name: 'Aramil'
-      race: 'Wood Elf'
-      class: 'Ranger'
-      level: 1
-      currentHitPoints: 20
-      hitPoints: 20
-      armorClass: 10
-      # initiativeBonus
-      strength: 10
-      dexterity: 10
-      constitution: 10
-      wisdom: 10
-      intelligence: 10
-      charisma: 10
+    existingCharacter = localStorage.getItem 'character'
+    if existingCharacter
+      return Character.create JSON.parse existingCharacter
+    else
+      c = Character.create
+        name: 'Aramil'
+        race: 'Wood Elf'
+        class: 'Ranger'
+        level: 1
+        currentHitPoints: 20
+        hitPoints: 20
+        armorClass: 10
+        # initiativeBonus
+        strength: 10
+        dexterity: 10
+        constitution: 10
+        wisdom: 10
+        intelligence: 10
+        charisma: 10
+      c.save()
+      c
   getModifier: (score) ->
     Math.floor((score - 10) / 2)
 

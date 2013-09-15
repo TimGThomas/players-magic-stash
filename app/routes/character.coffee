@@ -14,6 +14,8 @@ CharacterRoute = Ember.Route.extend
         parentView: 'application'
       @get('controller').send 'clearModalValues'
       $('.modal').removeClass 'modal-show'
+    save: ->
+      @controllerFor('character').get('model').save()
 
 CharacterRoute::showModal = (view) ->
   @render view,
