@@ -1,4 +1,35 @@
+levels = [
+  0
+  250
+  950
+  2250
+  4750
+  9500
+  16000
+  25000
+  38000
+  56000
+  77000
+  96000
+  120000
+  150000
+  190000
+  230000
+  280000
+  330000
+  390000
+  460000
+]
+
 Character = Ember.Object.extend
+  level: (->
+    actLevel = 0
+    levels.forEach (level) =>
+      if @get("xp") >= level
+        actLevel = levels.indexOf(level) + 1
+        return
+    actLevel
+    ).property 'xp'
   # Ability Score Modifiers
   strengthModifier: (-> Character.getModifier @get('strength')).property 'strength'
   constitutionModifier: (-> Character.getModifier @get('constitution')).property 'constitution'
@@ -31,7 +62,7 @@ Character.reopenClass
         name: 'Aramil'
         race: 'Wood Elf'
         class: 'Ranger'
-        level: 1
+        xp: 0
         currentHitPoints: 20
         hitPoints: 20
         armorClass: 10

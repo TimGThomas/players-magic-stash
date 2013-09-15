@@ -2,7 +2,7 @@
     <div class="flipper">
         <div class="front">
             <h2>{{name}}</h2>
-            <h3>{{race}} {{class}}</h3>
+            <h3>Level-{{level}} {{race}} {{class}}</h3>
 
             <h4>Basics</h4>
             <ul class="tile-container">
@@ -73,6 +73,10 @@
                 <p>
                     <label for="class">Class</label>
                     {{input type=text value=class}}
+                </p>
+                <p>
+                    <label for="xp">XP</label>
+                    {{input type=text value=xp}}
                 </p>
                 <p>
                     <label for="hitPoints">Hit Points</label>
