@@ -1,3 +1,5 @@
+`import App from 'appkit/app'`
+
 defaultCharacter =
   name: 'Aramil'
   race: 'Wood Elf'
@@ -47,13 +49,14 @@ Character = Ember.Object.extend App.Jsonable,
         return
     actLevel
     ).property 'xp'
+  
   # Ability Score Modifiers
-  strengthModifier: (-> Character.getModifier @get('strength')).property 'strength'
-  constitutionModifier: (-> Character.getModifier @get('constitution')).property 'constitution'
-  dexterityModifier: (-> Character.getModifier @get('dexterity')).property 'dexterity'
-  wisdomModifier: (-> Character.getModifier @get('wisdom')).property 'wisdom'
-  intelligenceModifier: (-> Character.getModifier @get('intelligence')).property 'intelligence'
-  charismaModifier: (-> Character.getModifier @get('charisma')).property 'charisma'
+  strengthModifier: App.computed.modifierFor 'strength'
+  constitutionModifier: App.computed.modifierFor 'constitution'
+  dexterityModifier: App.computed.modifierFor 'dexterity'
+  wisdomModifier: App.computed.modifierFor 'wisdom'
+  intelligenceModifier: App.computed.modifierFor 'intelligence'
+  charismaModifier: App.computed.modifierFor 'charisma'
 
 Character::save = ->
   localStorage.setItem 'character', JSON.stringify(@getJson())
@@ -68,7 +71,5 @@ Character.reopenClass
       c = Character.create defaultCharacter
       c.save()
       c
-  getModifier: (score) ->
-    Math.floor((score - 10) / 2)
 
 `export default Character`

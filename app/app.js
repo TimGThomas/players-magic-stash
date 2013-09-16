@@ -51,4 +51,11 @@ App.Jsonable = Ember.Mixin.create({
   }
 });
 
+App.computed = {};
+App.computed.modifierFor = function(dependency) {
+  return Ember.computed(dependency, function() {
+    return Math.floor((this.get(dependency) - 10) / 2);
+  });
+};
+
 export default App;
