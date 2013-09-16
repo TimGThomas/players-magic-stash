@@ -10,10 +10,12 @@
                     <span class="title">Armor Class</span>
                     <span class="primary">{{armorClass}}</span>
                 </li>
-                <li class="tile" {{action showHitPoints}}>
-                    <span class="title">Hit Points</span>
-                    <span class="primary">{{currentHitPoints}}</span>
-                    <span class="secondary">{{hitPoints}}</span>
+                <li class="tile">
+                    <a {{action showHitPoints}} href="#">
+                        <span class="title">Hit Points</span>
+                        <span class="primary">{{currentHitPoints}}</span>
+                        <span class="secondary">{{hitPoints}}</span>
+                    </a>
                 </li>
                 <li class="tile">
                     <span class="title">Initiative</span>
