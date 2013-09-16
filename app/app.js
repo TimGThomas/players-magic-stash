@@ -29,4 +29,26 @@ App.RangeField = Ember.TextField.extend({
   attributeBindings: ['min', 'max', 'step']
 });
 
+App.Jsonable = Ember.Mixin.create({
+  excludedJsonProperties: [],
+  getJson: function() {
+      var v, json = {};
+      for (var key in this) {
+          if (this.hasOwnProperty(key) && this.excludedJsonProperties.indexOf(key) === -1) {
+              v = this[key];
+              if (v === 'toString') {
+                  continue;
+              } 
+              if (Ember.typeOf(v) === 'function') {
+                  continue;
+              }
+              if (App.Jsonable.detect(v))
+                  v = v.getJson();
+              json[key] = v;
+          }
+      }
+      return json;
+  }
+});
+
 export default App;

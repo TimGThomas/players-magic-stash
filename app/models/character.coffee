@@ -37,11 +37,12 @@ levels = [
   460000
 ]
 
-Character = Ember.Object.extend
+Character = Ember.Object.extend App.Jsonable,
+  excludedJsonProperties: [ 'level', 'strengthModifier', 'constitutionModifier', 'dexterityModifier', 'wisdomModifier', 'intelligenceModifier', 'charismaModifier' ]
   level: (->
     actLevel = 0
     levels.forEach (level) =>
-      if @get("xp") >= level
+      if @get('xp') >= level
         actLevel = levels.indexOf(level) + 1
         return
     actLevel
@@ -54,19 +55,8 @@ Character = Ember.Object.extend
   intelligenceModifier: (-> Character.getModifier @get('intelligence')).property 'intelligence'
   charismaModifier: (-> Character.getModifier @get('charisma')).property 'charisma'
 
-Character::toJSON = ->
-  ret = []
-  for key of this
-    if @hasOwnProperty(key)
-      v = this[key]
-      continue  if v is "toString"
-      # ignore useless items
-      continue  if Ember.typeOf(v) is "function"
-      ret.push key
-  @getProperties ret
-
 Character::save = ->
-  localStorage.setItem 'character', JSON.stringify(@toJSON())
+  localStorage.setItem 'character', JSON.stringify(@getJson())
 
 Character.reopenClass
   get: ->

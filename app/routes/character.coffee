@@ -9,6 +9,8 @@ CharacterRoute = Ember.Route.extend
     resetHitPoints: ->
       @get('controller').send 'resetHP'
       @send 'closeModal'
+    showAddXP: ->
+      @showModal 'modal-addXP'
     closeModal: ->
       @disconnectOutlet
         outlet: 'modal'
