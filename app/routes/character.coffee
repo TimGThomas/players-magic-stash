@@ -1,4 +1,5 @@
 `import Character from 'appkit/models/character'`
+`import ModifierHelper from 'appkit/helpers/modifier'`
 
 CharacterRoute = Ember.Route.extend
   model: ->

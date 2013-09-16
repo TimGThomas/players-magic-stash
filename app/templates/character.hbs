@@ -17,7 +17,7 @@
                 </li>
                 <li class="tile">
                     <span class="title">Initiative</span>
-                    <span class="primary">{{initiativeBonus}}</span>
+                    <span class="primary">{{modifier initiativeBonus}}</span>
                 </li>
             </ul>
 
@@ -27,32 +27,32 @@
                 <li class="tile">
                     <span class="title">Str</span>
                     <span class="primary">{{strength}}</span>
-                    <span class="secondary">{{strengthModifier}}</span>
+                    <span class="secondary">{{modifier strengthModifier}}</span>
                 </li>
                 <li class="tile">
                     <span class="title">Dex</span>
                     <span class="primary">{{dexterity}}</span>
-                    <span class="secondary">{{dexterityModifier}}</span>
+                    <span class="secondary">{{modifier dexterityModifier}}</span>
                 </li>
                 <li class="tile">
                     <span class="title">Con</span>
                     <span class="primary">{{constitution}}</span>
-                    <span class="secondary">{{constitutionModifier}}</span>
+                    <span class="secondary">{{modifier constitutionModifier}}</span>
                 </li>
                 <li class="tile">
                     <span class="title">Wis</span>
                     <span class="primary">{{wisdom}}</span>
-                    <span class="secondary">{{wisdomModifier}}</span>
+                    <span class="secondary">{{modifier wisdomModifier}}</span>
                 </li>
                 <li class="tile">
                     <span class="title">Int</span>
                     <span class="primary">{{intelligence}}</span>
-                    <span class="secondary">{{intelligenceModifier}}</span>
+                    <span class="secondary">{{modifier intelligenceModifier}}</span>
                 </li>
                 <li class="tile">
                     <span class="title">Cha</span>
                     <span class="primary">{{charisma}}</span>
-                    <span class="secondary">{{charismaModifier}}</span>
+                    <span class="secondary">{{modifier charismaModifier}}</span>
                 </li>
             </ul>
 
@@ -94,27 +94,27 @@
             <fieldset>
                 <legend>Ability Scores</legend>
                 <p>
-                    <label for="strength">Strength ({{strength}}, {{strengthModifier}})</label>
+                    <label for="strength">Strength ({{strength}}, {{modifier strengthModifier}})</label>
                     {{view App.RangeField valueBinding="strength" min="1" max="30"}}
                 </p>
                 <p>
-                    <label for="dexterity">Dexterity ({{dexterity}}, {{dexterityModifier}})</label>
+                    <label for="dexterity">Dexterity ({{dexterity}}, {{modifier dexterityModifier}})</label>
                     {{view App.RangeField valueBinding="dexterity" min="1" max="30"}}
                 </p>
                 <p>
-                    <label for="constitution">Constitution ({{constitution}}, {{constitutionModifier}})</label>
+                    <label for="constitution">Constitution ({{constitution}}, {{modifier constitutionModifier}})</label>
                     {{view App.RangeField valueBinding="constitution" min="1" max="30"}}
                 </p>
                 <p>
-                    <label for="wisdom">Wisdom ({{wisdom}}, {{wisdomModifier}})</label>
+                    <label for="wisdom">Wisdom ({{wisdom}}, {{modifier wisdomModifier}})</label>
                     {{view App.RangeField valueBinding="wisdom" min="1" max="30"}}
                 </p>
                 <p>
-                    <label for="intelligence">Intelligence ({{intelligence}}, {{intelligenceModifier}})</label>
+                    <label for="intelligence">Intelligence ({{intelligence}}, {{modifier intelligenceModifier}})</label>
                     {{view App.RangeField valueBinding="intelligence" min="1" max="30"}}
                 </p>
                 <p>
-                    <label for="charisma">Charisma ({{charisma}}, {{charismaModifier}})</label>
+                    <label for="charisma">Charisma ({{charisma}}, {{modifier charismaModifier}})</label>
                     {{view App.RangeField valueBinding="charisma" min="1" max="30"}}
                 </p>
             </fieldset>
