@@ -17,7 +17,7 @@
                 </li>
                 <li class="tile">
                     <span class="title">Initiative</span>
-                    <span class="primary">(+0)</span>
+                    <span class="primary">{{initiativeBonus}}</span>
                 </li>
             </ul>
 
@@ -85,6 +85,10 @@
                 <p>
                     <label for="armorClass">Armor Class</label>
                     {{input type=text value=armorClass}}
+                </p>
+                <p>
+                    <label for="initiativeBonus">Initiative</label>
+                    {{input type=text value=initiativeBonus}}
                 </p>
             </fieldset>
             <fieldset>

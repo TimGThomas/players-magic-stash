@@ -1,3 +1,19 @@
+defaultCharacter =
+  name: 'Aramil'
+  race: 'Wood Elf'
+  class: 'Ranger'
+  xp: 0
+  currentHitPoints: 20
+  hitPoints: 20
+  armorClass: 10
+  initiativeBonus: 0
+  strength: 10
+  dexterity: 10
+  constitution: 10
+  wisdom: 10
+  intelligence: 10
+  charisma: 10
+
 levels = [
   0
   250
@@ -56,23 +72,10 @@ Character.reopenClass
   get: ->
     existingCharacter = localStorage.getItem 'character'
     if existingCharacter
-      return Character.create JSON.parse existingCharacter
+      # Add any new properties to saved Characters.
+      return Character.create Object.deepExtend defaultCharacter, JSON.parse existingCharacter
     else
-      c = Character.create
-        name: 'Aramil'
-        race: 'Wood Elf'
-        class: 'Ranger'
-        xp: 0
-        currentHitPoints: 20
-        hitPoints: 20
-        armorClass: 10
-        # initiativeBonus
-        strength: 10
-        dexterity: 10
-        constitution: 10
-        wisdom: 10
-        intelligence: 10
-        charisma: 10
+      c = Character.create defaultCharacter
       c.save()
       c
   getModifier: (score) ->
