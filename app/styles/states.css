@@ -74,6 +74,7 @@ main { transition: all 0.25s; }
 /* Tiles */
 ul.tile-container {
   display: table;
+  table-layout: fixed;
   padding: 0;
   margin: 0;
   width: 100%;
