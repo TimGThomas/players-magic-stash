@@ -55,6 +55,7 @@ module.exports = function(grunt) {
                      whenAvailable('stylus:compile'),
                      'cssmin',
                      'concat_sourcemap',
+                     'play:buildDone',
                      'unlock' ]));
 
   grunt.registerTask('build:debug', "Build a development-friendly version of your app.", _.compact([
