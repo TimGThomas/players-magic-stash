@@ -12,11 +12,10 @@
   -webkit-transform: rotateY(-180deg);
 }
 
-.tile-flip, .front, .back {
-  background: rgba(255, 255, 255, 0.85);
-  height: 500px;
-  width: 300px;
-}
+/*.tile-flip, .front, .back {
+  height: 650px;
+  width: 488px;
+}*/
 
 .flipper {
   -webkit-transition: 0.85s;
@@ -26,7 +25,6 @@
 }
 
 .front, .back {
-  border: 1px solid #000;
   -webkit-backface-visibility: hidden;
   position: absolute;
   top: 0;
@@ -41,7 +39,7 @@
 
 /* Modal */
 #main { -webkit-transition: all 0.25s; transition: all 0.25s; }
-.modal, .modal-cover { opacity: 0; visibility: hidden; -webkit-transition: all 0.25s; transition: all 0.25s; }
+.modal, .modal-cover { opacity: 0; visibility: hidden; -webkit-transition: all 0.25s; -webkit-transition-delay: 0; transition: all 0.25s; }
 
 .modal {
   background: #fff;
@@ -64,37 +62,12 @@
   z-index: 10;
 }
 
+.modal-show { -webkit-transition-delay: 0.5s; }
+
 .modal-show, .modal-show ~ .modal-cover {
   opacity: 1;
   visibility: visible;
 }
-.modal-show ~ #main {
-  -webkit-filter: blur(2.5px);
-}
-
-/* Tiles */
-ul.tile-container {
-  display: table;
-  table-layout: fixed;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-}
-
-.tile {
-  display: table-cell;
-}
-
-.tile .title, .tile .primary, .tile .secondary {
-  display: block;
-  text-align: center;
-}
-.tile .title {
-
-}
-.tile .primary {
-  font-size: x-large;
-}
-.tile .secondary {
-
+.modal-show ~ #header, .modal-show ~ #main {
+  -webkit-filter: blur(8px);
 }

@@ -1,11 +1,13 @@
-<div class="tile-flip" {{bindAttr class="isEditing:flip"}}>
+<div class="l-card-container tile-flip" {{bindAttr class="isEditing:flip"}}>
     <div class="flipper">
-        <div class="front">
-            <h2>{{name}}</h2>
-            <h3>Level-{{level}} {{race}} {{class}} (<a href="#" {{action showAddXP}}>Add XP</a>)</h3>
+        <div class="l-card front">
+            <header class="card-header">
+                <h2>{{name}}</h2>
+                <h3>Level-{{level}} {{race}} {{class}} (<a href="#" {{action showAddXP}}>Add XP</a>)</h3>
+            </header>
 
-            <h4>Basics</h4>
-            <ul class="tile-container">
+            <h4 class="card-section">Basics</h4>
+            <ul class="tiles">
                 <li class="tile">
                     <span class="title">Armor Class</span>
                     <span class="primary">{{armorClass}}</span>
@@ -23,45 +25,47 @@
                 </li>
             </ul>
 
-            <h4>Ability Scores</h4>
+            <h4 class="card-section">Ability Scores</h4>
 
-            <ul class="tile-container">
+            <ul class="tiles">
                 <li class="tile">
                     <span class="title">Str</span>
-                    <span class="primary">{{strength}}</span>
-                    <span class="secondary">{{modifier strengthModifier}}</span>
+                    <span class="primary">{{modifier strengthModifier}}</span>
+                    <span class="secondary">{{strength}}</span>
                 </li>
                 <li class="tile">
                     <span class="title">Dex</span>
-                    <span class="primary">{{dexterity}}</span>
-                    <span class="secondary">{{modifier dexterityModifier}}</span>
+                    <span class="primary">{{modifier dexterityModifier}}</span>
+                    <span class="secondary">{{dexterity}}</span>
                 </li>
                 <li class="tile">
                     <span class="title">Con</span>
-                    <span class="primary">{{constitution}}</span>
-                    <span class="secondary">{{modifier constitutionModifier}}</span>
+                    <span class="primary">{{modifier constitutionModifier}}</span>
+                    <span class="secondary">{{constitution}}</span>
                 </li>
                 <li class="tile">
                     <span class="title">Wis</span>
-                    <span class="primary">{{wisdom}}</span>
-                    <span class="secondary">{{modifier wisdomModifier}}</span>
+                    <span class="primary">{{modifier wisdomModifier}}</span>
+                    <span class="secondary">{{wisdom}}</span>
                 </li>
                 <li class="tile">
                     <span class="title">Int</span>
-                    <span class="primary">{{intelligence}}</span>
-                    <span class="secondary">{{modifier intelligenceModifier}}</span>
+                    <span class="primary">{{modifier intelligenceModifier}}</span>
+                    <span class="secondary">{{intelligence}}</span>
                 </li>
                 <li class="tile">
                     <span class="title">Cha</span>
-                    <span class="primary">{{charisma}}</span>
-                    <span class="secondary">{{modifier charismaModifier}}</span>
+                    <span class="primary">{{modifier charismaModifier}}</span>
+                    <span class="secondary">{{charisma}}</span>
                 </li>
             </ul>
+
+            <h4 class="card-section">Attacks</h4>
 
             <button {{action toggleProperty 'isEditing'}}>Edit</button>
         </div>
 
-        <div class="back">
+        <div class="l-card back">
             <fieldset>
                 <legend>Basics</legend>
                 <p>
@@ -123,4 +127,8 @@
             <button {{action save}}>Save</button>
         </div>
     </div>
+</div>
+
+<div class="l-card-container l-card">
+    <p>This space intentionally left blank.</p>
 </div>
