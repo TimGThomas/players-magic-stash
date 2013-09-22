@@ -60,11 +60,35 @@ function buildWildcardMiddleware(options) {
   }
 }
 
+function isAppCacheRequest(request) {
+  var segments = request.url.split('.'),
+    extension = segments[segments.length - 1];
+
+  return extension === 'appcache';
+};
+
+function buildAppCacheMiddleware(options) {
+  return function(req, res, next) {
+    if (!isAppCacheRequest(req)) return next();
+
+    var file = (options.appcache || 'site.appcache'),
+        filePath = options.base + "/" + file;
+
+    fs.readFile(filePath, function(err, data){
+      if (err) { return next('ENOENT' == err.code ? null : err); }
+
+      response.writeHead(200, { 'Content-Type': 'text/cache-manifest' });
+      response.end(data);
+    });
+  }
+};
+
 function middleware(connect, options) {
   return [
     lock,
     connect['static'](options.base),
     connect.directory(options.base),
+    buildAppCacheMiddleware(options),
     // Remove this middleware to disable catch-all routing.
     buildWildcardMiddleware(options)
   ];
