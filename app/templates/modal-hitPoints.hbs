@@ -1,5 +1,8 @@
+<h2 class="card-section">Hit Points</h2>
 {{view App.RangeField valueBinding="hitPointModifier" min="-100" max="100"}}
 <p>{{modifier hitPointModifier}}</p>
-<a href="#" {{action closeModal}}>&times;</a>
-<a href="#" {{action resetHitPoints}}>Reset</a>
-<a href="#" {{action commitHitPoints}}>OK</a>
+<div class="actions">
+  <a class="action btn" {{action closeModal}} href="#">Cancel</a>
+  <a class="action btn" {{action resetHitPoints}} href="#">Reset</a>
+  <a class="action btn primary" {{action commitHitPoints}} href="#">OK</a>
+</div>

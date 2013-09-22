@@ -33,8 +33,30 @@ h1, h2, h3, h4 {
   font-weight: normal;
 }
 
+/* Inputs */
+input[type=range] {
+  -webkit-appearance: none !important;
+  padding: 0 8px;
+  height: 12px;
+  width: 100%;
+  box-sizing: border-box;
+
+  background: transparent;
+  border: 1px solid #463d3b;
+  border-radius: 100px;
+}
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    height: 32px;
+    width: 32px;
+
+    background: black;
+    border: 1px solid #463d3b;
+    border-radius: 100px;
+  }
+
 /* Ember */
 
-.ember-view {
+body > .ember-view {
   height: 100%;
 }

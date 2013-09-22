@@ -1,4 +1,7 @@
+<h2 class="card-section">Experience Points</h2>
 {{input type=text value=xpModifier}}
 <p>{{modifier xpModifier}}</p>
-<a href="#" {{action closeModal}}>&times;</a>
-<a href="#" {{action commitAddXP}}>OK</a>
+<div class="actions">
+  <a class="action btn" href="#" {{action closeModal}}>Cancel</a>
+  <a class="action btn primary" href="#" {{action commitAddXP}}>OK</a>
+</div>

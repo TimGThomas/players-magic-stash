@@ -1,3 +1,13 @@
+/* New states */
+
+.de-em {
+  color: rgba(255, 255, 255, 0.25);
+  /* Use `em` so this is always smaller than the adjoining text. */
+  font-size: 0.6em;
+}
+
+/* States to organize */
+
 .hide-on-edit { display: block; }
 .show-on-edit { display: none; }
 
@@ -11,11 +21,6 @@
 .tile-flip.flip .flipper {
   -webkit-transform: rotateY(-180deg);
 }
-
-/*.tile-flip, .front, .back {
-  height: 650px;
-  width: 488px;
-}*/
 
 .flipper {
   -webkit-transition: 0.85s;
@@ -38,22 +43,18 @@
 .back { -webkit-transform: rotateY(180deg); }
 
 /* Modal */
-#main { -webkit-transition: all 0.25s; transition: all 0.25s; }
-.modal, .modal-cover { opacity: 0; visibility: hidden; -webkit-transition: all 0.25s; -webkit-transition-delay: 0; transition: all 0.25s; }
+#content { -webkit-transition: all 0.5s; transition: all 0.5s; -webkit-filter: blur(0); }
+.modal, .modal-cover { opacity: 0; visibility: hidden; -webkit-transition: all 0.5s; -webkit-transition-delay: 0; transition: all 0.5s; }
 
 .modal {
-  background: #fff;
-  border: 1px solid #000;
   position: fixed;
   left: 50%;
-  height: 100px;
-  width: 200px;
   z-index: 20;
   -webkit-transform: translateX(-50%);
 }
 
 .modal-cover {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(0, 0, 0, 0.25);
   position: fixed;
   left: 0;
   top: 0;
@@ -68,6 +69,6 @@
   opacity: 1;
   visibility: visible;
 }
-.modal-show ~ #header, .modal-show ~ #main {
-  -webkit-filter: blur(8px);
+.modal-show ~ #content {
+  -webkit-filter: blur(10px);
 }

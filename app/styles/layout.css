@@ -1,5 +1,6 @@
 body {
-  
+  /* Avoid white ghosting when blurring content */
+  background-color: black;
 }
 
 #header {
@@ -16,15 +17,19 @@ body {
     color: #fff;
   }
 
-#main {
-  box-sizing: border-box;
+#content {
   height: 100%;
-  padding: 60px 8px 16px;
 
   background-image:
     radial-gradient(circle, transparent, rgba(0, 0, 0, 0.5)),
     url('/assets/images/leather.jpg');
   background-size: cover;
+}
+
+#main {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 60px 8px 16px;
 }
 
 .l-card {
@@ -44,3 +49,14 @@ body {
   .l-card-container .flipper {
     height: 100%;
   }
+
+.l-modal {
+  height: 300px;
+  width: 500px;
+  margin-top: 50px;
+  x-padding: 8px;
+
+  background-color: rgba(0, 0, 0, 0.65);
+  border: 1px solid #463d3b;
+  border-radius: 8px;
+}

@@ -52,3 +52,32 @@
     color: rgba(255, 255, 255, 0.65);
     font-size: 1.2rem;
   }
+
+.actions {
+  display: table;
+  position: absolute;
+  /* Magic Number: modals have 8px of padding. */
+  bottom: 0px;
+  width: 100%;
+  table-layout: fixed;
+
+  border-spacing: 8px;
+}
+  .actions .action {
+    display: table-cell;
+  }
+
+.btn {
+  height: 44px;
+
+  border: 1px solid #463d3b;
+  border-radius: 2px;
+
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.2rem;
+  line-height: 44px;
+  text-align: center;
+}
+  .btn.primary {
+    color: #88ab8a;
+  }
