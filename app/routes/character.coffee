@@ -13,10 +13,11 @@ CharacterRoute = Ember.Route.extend
     showAddXP: ->
       @showModal 'modal-addXP'
     closeModal: ->
-      @disconnectOutlet
-        outlet: 'modal'
-        parentView: 'application'
-      @get('controller').send 'clearModalValues'
+      setTimeout (=>
+        @disconnectOutlet
+          outlet: 'modal'
+          parentView: 'application'
+        @get('controller').send 'clearModalValues'), 500
       $('.modal').removeClass 'modal-show'
 
 CharacterRoute::showModal = (view) ->
