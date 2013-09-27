@@ -22,7 +22,7 @@ body {
 
   background-image:
     radial-gradient(circle, transparent, rgba(0, 0, 0, 0.5)),
-    url('/assets/images/leather.jpg');
+    url('../assets/images/leather.jpg');
   background-size: cover;
 }
 
