@@ -2,8 +2,15 @@
     <div class="flipper">
         <div class="l-card front">
             <header class="card-header">
-                <h2>{{name}} <a {{action toggleProperty 'isEditing'}} class="de-em" href="#">Edit</a></h2>
-                <h3>Level-{{level}} {{race}} {{class}} (<a href="#" {{action showAddXP}}>Add XP</a>)</h3>
+                <h2>
+                    {{name}}
+                    <a {{action toggleProperty 'isEditing'}} class="de-em" href="#">Edit</a>
+                </h2>
+                <h3>Level-{{level}} {{race}} {{class}}</h3>
+                <aside class="card-subheader" {{action showAddXP}}>
+                    <span class="primary">{{xp}}<span class="de-em"> XP</span></span>
+                    <span class="secondary">Level {{level}}</span>
+                </aside>
             </header>
 
             <h4 class="card-section">Basics</h4>

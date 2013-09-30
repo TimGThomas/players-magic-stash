@@ -10,6 +10,28 @@
     font-size: 1.0rem;
   }
 
+.card-subheader {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  width: 100px;
+}
+  .card-subheader .primary, .card-subheader .secondary {
+    display: block;
+    text-align: center;
+  }
+
+  .card-subheader .primary {
+    font-size: 1.4rem;
+    /* These values are adjacent to <h2> elements in `.card-header`. */
+    line-height: 2.0rem;
+  }
+
+  .card-subheader .secondary {
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 1.0rem;
+  }
+
 .card-section {
   height: 32px;
 
