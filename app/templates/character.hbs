@@ -16,19 +16,23 @@
             <h4 class="card-section">Basics</h4>
             <ul class="tiles">
                 <li class="tile">
-                    <span class="title">Armor Class</span>
-                    <span class="primary">{{armorClass}}</span>
+                    <span class="title">Initiative</span>
+                    <span class="primary">{{modifier initiativeBonus}}</span>
                 </li>
                 <li class="tile">
                     <a {{action showHitPoints}} href="#">
                         <span class="title">Hit Points</span>
                         <span class="primary">{{currentHitPoints}}</span>
-                        <span class="secondary">{{hitPoints}}</span>
+                        <span class="secondary">of {{hitPoints}}</span>
                     </a>
                 </li>
                 <li class="tile">
-                    <span class="title">Initiative</span>
-                    <span class="primary">{{modifier initiativeBonus}}</span>
+                    <span class="title">Armor Class</span>
+                    <span class="primary">{{armorClass}}</span>
+                </li>
+                <li class="tile">
+                    <span class="title">Speed</span>
+                    <span class="primary">{{speed}}</span>
                 </li>
             </ul>
 
@@ -142,6 +146,10 @@
                 <p>
                     <label for="initiativeBonus">Initiative</label>
                     {{input type=text value=initiativeBonus}}
+                </p>
+                <p>
+                    <label for="speed">Speed</label>
+                    {{input type=text value=speed}}
                 </p>
             </fieldset>
             <fieldset>

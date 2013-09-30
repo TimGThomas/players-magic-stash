@@ -9,6 +9,7 @@ defaultCharacter =
   hitPoints: 20
   armorClass: 10
   initiativeBonus: 0
+  speed: 30
   strength: 10
   dexterity: 10
   constitution: 10
