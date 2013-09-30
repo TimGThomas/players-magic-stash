@@ -45,6 +45,17 @@
     height: 100%;
   }
 
+.l-panel {
+  /* MAGIC NUMBER: Fill the remaining height of the main panel. Perhaps switch
+     to flex-box for positioning? */
+  box-sizing: border-box;
+  height: 190px;
+  margin: 16px 0;
+  padding: 0 16px;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
 .l-modal {
   height: 300px;
   width: 500px;

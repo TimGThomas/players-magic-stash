@@ -25,6 +25,7 @@ var App = Ember.Application.create({
 });
 
 App.RangeField = Ember.TextField.extend({
+  classNames: 'scrollable',
   type: 'range',
   attributeBindings: ['min', 'max', 'step']
 });
