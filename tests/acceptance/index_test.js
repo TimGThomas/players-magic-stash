@@ -7,6 +7,7 @@ module("Acceptances - Index", {
   }
 });
 
+/*
 test("index renders", function(){
   expect(3);
 
@@ -18,3 +19,4 @@ test("index renders", function(){
     equal(list.text(), "redyellowblue");
   });
 });
+*/

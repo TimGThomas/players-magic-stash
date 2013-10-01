@@ -37,7 +37,7 @@ test('Should calculate level based on XP', function() {
         expectedLevel = xpLevelCombinations[key],
         actualLevel;
     character.set('xp', xp);
-    actualLevel = character.get('xpLevel');
+    actualLevel = character.get('level');
     equal(actualLevel, expectedLevel, 'A character with ' + xp + ' XP should be level ' + expectedLevel + ' (was ' + actualLevel + ').');
   });
 });
