@@ -1,4 +1,5 @@
 `import App from 'appkit/app'`
+`import Attack from 'appkit/models/attack'`
 
 defaultCharacter =
   name: 'Aramil'
@@ -41,7 +42,7 @@ levels = [
 ]
 
 Character = Ember.Object.extend App.Jsonable,
-  excludedJsonProperties: [ 'level', 'strengthModifier', 'constitutionModifier', 'dexterityModifier', 'wisdomModifier', 'intelligenceModifier', 'charismaModifier' ]
+  excludedJsonProperties: [ 'level', 'strengthModifier', 'constitutionModifier', 'dexterityModifier', 'wisdomModifier', 'intelligenceModifier', 'charismaModifier', 'attacks', 'weaponAttacks', 'spellAttacks' ]
   level: (->
     actLevel = 0
     levels.forEach (level) =>
@@ -59,6 +60,15 @@ Character = Ember.Object.extend App.Jsonable,
   intelligenceModifier: App.computed.modifierFor 'intelligence'
   charismaModifier: App.computed.modifierFor 'charisma'
 
+  # Attacks
+  weaponAttacks: (->
+    @get('attacks').filterProperty 'type', 'weapon'
+    ).property 'attacks'
+
+  spellAttacks: (->
+    @get('attacks').filterProperty 'type', 'spell'
+    ).property 'attacks'
+
 Character::save = ->
   localStorage.setItem 'character', JSON.stringify(@getJson())
 
@@ -67,10 +77,12 @@ Character.reopenClass
     existingCharacter = localStorage.getItem 'character'
     if existingCharacter
       # Add any new properties to saved Characters.
-      return Character.create Object.deepExtend defaultCharacter, JSON.parse existingCharacter
+      c = Character.create Object.deepExtend defaultCharacter, JSON.parse existingCharacter
     else
       c = Character.create defaultCharacter
       c.save()
-      c
+    # Mix in attacks, which are static at the moment.
+    c.set 'attacks', Attack.get()
+    c
 
 `export default Character`

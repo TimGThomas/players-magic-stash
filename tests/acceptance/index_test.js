@@ -7,16 +7,11 @@ module("Acceptances - Index", {
   }
 });
 
-/*
 test("index renders", function(){
-  expect(3);
+  expect(2);
 
   visit('/').then(function(){
     ok(exists("h1:contains('Magic Stash: Player')"));
-
-    var list = find("ul li");
-    equal(list.length, 3);
-    equal(list.text(), "redyellowblue");
+    ok(exists('a:contains("Character")'));
   });
 });
-*/

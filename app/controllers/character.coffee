@@ -1,3 +1,5 @@
+`import Attack from 'appkit/models/attack'`
+
 CharacterController = Ember.ObjectController.extend
   actions:
     save: ->

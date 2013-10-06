@@ -1,6 +1,5 @@
 router = Ember.Router.map ->
-  @resource 'character', ->
-    @route 'hitPoints'
+  @resource 'character'
   # this.resource('posts', function() {
   #   this.route('new');
   # });

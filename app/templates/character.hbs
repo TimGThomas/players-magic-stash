@@ -83,23 +83,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Short Sword</td>
-                            <td>+2</td>
-                            <td>1d6</td>
-                        </tr>
-                        <tr>
-                            <td>Short Swords</td>
-                            <td>+2, +0</td>
-                            <td>1d6, 1d6</td>
-                        </tr>
-                        <tr>
-                            <td>Longbow (150/600)</td>
-                            <td>+4</td>
-                            <td>1d8</td>
-                        </tr>
+                        {{#each weaponAttacks itemController="attack"}}
+                            <tr {{action showAttackDetails this}}>  <!-- action showAttackDetails this -->
+                                <td>{{name}}</td>
+                                <td>{{modifier bonus}}</td>
+                                <td>{{damage}}</td>
+                            </tr>
+                        {{/each}}
                     </tbody>
-                    <!--<thead>
+                    <thead>
                         <tr>
                             <th>Spells</th>
                             <th>Bonus</th>
@@ -107,12 +99,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Shillelagh</td>
-                            <td>+2</td>
-                            <td>1d6</td>
-                        </tr>
-                    </tbody>-->
+                        {{#each spellAttacks}}
+                            <tr>
+                                <td>{{name}}</td>
+                                <td>{{modifier bonus}}</td>
+                                <td>{{damage}}</td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
                 </table>
             </div>
 

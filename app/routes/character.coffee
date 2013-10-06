@@ -1,4 +1,5 @@
 `import Character from 'appkit/models/character'`
+`import Attack from 'appkit/models/attack'`
 `import ModifierHelper from 'appkit/helpers/modifier'`
 
 CharacterRoute = Ember.Route.extend
@@ -12,6 +13,8 @@ CharacterRoute = Ember.Route.extend
       @send 'closeModal'
     showAddXP: ->
       @showModal 'modal-addXP'
+    showAttackDetails: (model) ->
+      @showModal 'modal-attackDetails', model, 'attack'
     closeModal: ->
       setTimeout (=>
         @disconnectOutlet
@@ -20,10 +23,13 @@ CharacterRoute = Ember.Route.extend
         @get('controller').send 'clearModalValues'), 500
       $('.modal').removeClass 'modal-show'
 
-CharacterRoute::showModal = (view) ->
-  @render view,
+CharacterRoute::showModal = (view, model, controller) ->
+  @controllerFor('attack').set 'content', model if model
+  renderOptions =
     into: 'application'
     outlet: 'modal'
+  renderOptions.controller = controller if controller
+  @render view, renderOptions
   $('.modal').addClass 'modal-show'
 
 `export default CharacterRoute`
