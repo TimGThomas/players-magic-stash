@@ -1,0 +1,16 @@
+{
+  "version": 3,
+  "file": "tests.js",
+  "sources": [
+    "tmp/transpiled/tests/acceptance/index_test.js",
+    "tmp/transpiled/tests/unit/models/character_level_test.js",
+    "tmp/transpiled/tests/unit/routes/index_test.js"
+  ],
+  "names": [],
+  "mappings": "AAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,K;ACpBA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,K;AC9CA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,K",
+  "sourcesContent": [
+    "define(\"appkit/tests/acceptance/index_test\",\n  [\"appkit/routes/index\",\"appkit/app\"],\n  function(Index, App) {\n    \"use strict\";\n\n    module(\"Acceptances - Index\", {\n      setup: function(){\n        App.reset();\n      }\n    });\n\n    test(\"index renders\", function(){\n      expect(2);\n\n      visit('/').then(function(){\n        ok(exists(\"h1:contains('Magic Stash: Player')\"));\n        ok(exists('a:contains(\"Character\")'));\n      });\n    });\n\n  });",
+    "define(\"appkit/tests/unit/models/character_level_test\",\n  [\"appkit/models/character\"],\n  function(Character) {\n    \"use strict\";\n\n    var character;\n\n    var xpLevelCombinations = {\n      '0':        1,\n      '250':      2,\n      '950':      3,\n      '2250':    4,\n      '4750':    5,\n      '9500':    6,\n      '16000':   7,\n      '25000':   8,\n      '38000':   9,\n      '56000':  10,\n      '77000':  11,\n      '96000':  12,\n      '120000': 13,\n      '150000': 14,\n      '190000': 15,\n      '230000': 16,\n      '280000': 17,\n      '330000': 18,\n      '390000': 19,\n      '460000': 20\n    };\n\n    module('Unit - Character', {\n      setup: function() {\n        character = Character.create();\n      }\n    });\n\n    test('Should calculate level based on XP', function() {\n      Object.keys(xpLevelCombinations).forEach(function(key) {\n        var xp = +key,\n            expectedLevel = xpLevelCombinations[key],\n            actualLevel;\n        character.set('xp', xp);\n        actualLevel = character.get('level');\n        equal(actualLevel, expectedLevel, 'A character with ' + xp + ' XP should be level ' + expectedLevel + ' (was ' + actualLevel + ').');\n      });\n    });\n  });",
+    "define(\"appkit/tests/unit/routes/index_test\",\n  [\"appkit/routes/index\",\"appkit/app\"],\n  function(Index, App) {\n    \"use strict\";\n\n    var route;\n\n    module(\"Unit - IndexRoute\", {\n      setup: function(){\n        route = App.__container__.lookup('route:index');\n      }\n    });\n\n    test(\"it exists\", function(){\n      ok(route);\n      ok(route instanceof Ember.Route);\n    });\n\n    test(\"#model\", function(){\n      deepEqual(route.model(), ['red', 'yellow', 'blue']);\n    });\n\n  });"
+  ]
+}
